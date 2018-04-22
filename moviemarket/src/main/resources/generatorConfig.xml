@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC
+        "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "D:/IdeaProject/mybatis-generator-config_1_0.dtd" >
+
+
+
+<generatorConfiguration>
+
+    <context id="mysqlgenerator" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/moviemarket"
+                        userId="root"
+                        password="admin" />
+
+        <javaModelGenerator targetPackage="com.moviemarket.model"
+                            targetProject="src/main/java" >
+            <property name="enableSubPackages" value="true" />
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="com.moviemarket.dao.mapper"
+                         targetProject="src/main/resources" >
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="com.moviemarket.dao"
+                             targetProject="src/main/java" >
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+
+
+
+        <table schema="general" tableName="movie" domainObjectName="Movie"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false" >
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+        <table schema="general" tableName="m_user" domainObjectName="User"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false" >
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+        <table schema="general" tableName="m_order" domainObjectName="Order"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false" >
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+        <table schema="general" tableName="m_comment" domainObjectName="Comment"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false" >
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+        <table schema="general" tableName="m_shopping_trolley" domainObjectName="shoppingTrolley"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false" >
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+    </context>
+
+</generatorConfiguration>

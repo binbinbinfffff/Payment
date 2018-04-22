@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.moviemarket.dao.UserDao" >
+  <resultMap id="BaseResultMap" type="com.moviemarket.model.User" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="user_openid" property="user_openid" jdbcType="VARCHAR" />
+    <result column="user_name" property="user_name" jdbcType="VARCHAR" />
+    <result column="user_password" property="user_password" jdbcType="VARCHAR" />
+    <result column="user_sex" property="user_sex" jdbcType="INTEGER" />
+    <result column="user_email" property="user_email" jdbcType="VARCHAR" />
+    <result column="user_phone" property="user_phone" jdbcType="INTEGER" />
+    <result column="user_status" property="user_status" jdbcType="INTEGER" />
+    <result column="user_register_time" property="user_register_time" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_openid, user_name, user_password, user_sex, user_email, user_phone, user_status, 
+    user_register_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from m_user
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from m_user
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.moviemarket.model.User" >
+    insert into m_user (id, user_openid, user_name, 
+      user_password, user_sex, user_email, 
+      user_phone, user_status, user_register_time
+      )
+    values (#{id,jdbcType=INTEGER}, #{user_openid,jdbcType=VARCHAR}, #{user_name,jdbcType=VARCHAR}, 
+      #{user_password,jdbcType=VARCHAR}, #{user_sex,jdbcType=INTEGER}, #{user_email,jdbcType=VARCHAR}, 
+      #{user_phone,jdbcType=INTEGER}, #{user_status,jdbcType=INTEGER}, #{user_register_time,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.moviemarket.model.User" >
+    insert into m_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="user_openid != null" >
+        user_openid,
+      </if>
+      <if test="user_name != null" >
+        user_name,
+      </if>
+      <if test="user_password != null" >
+        user_password,
+      </if>
+      <if test="user_sex != null" >
+        user_sex,
+      </if>
+      <if test="user_email != null" >
+        user_email,
+      </if>
+      <if test="user_phone != null" >
+        user_phone,
+      </if>
+      <if test="user_status != null" >
+        user_status,
+      </if>
+      <if test="user_register_time != null" >
+        user_register_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="user_openid != null" >
+        #{user_openid,jdbcType=VARCHAR},
+      </if>
+      <if test="user_name != null" >
+        #{user_name,jdbcType=VARCHAR},
+      </if>
+      <if test="user_password != null" >
+        #{user_password,jdbcType=VARCHAR},
+      </if>
+      <if test="user_sex != null" >
+        #{user_sex,jdbcType=INTEGER},
+      </if>
+      <if test="user_email != null" >
+        #{user_email,jdbcType=VARCHAR},
+      </if>
+      <if test="user_phone != null" >
+        #{user_phone,jdbcType=INTEGER},
+      </if>
+      <if test="user_status != null" >
+        #{user_status,jdbcType=INTEGER},
+      </if>
+      <if test="user_register_time != null" >
+        #{user_register_time,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.moviemarket.model.User" >
+    update m_user
+    <set >
+      <if test="user_openid != null" >
+        user_openid = #{user_openid,jdbcType=VARCHAR},
+      </if>
+      <if test="user_name != null" >
+        user_name = #{user_name,jdbcType=VARCHAR},
+      </if>
+      <if test="user_password != null" >
+        user_password = #{user_password,jdbcType=VARCHAR},
+      </if>
+      <if test="user_sex != null" >
+        user_sex = #{user_sex,jdbcType=INTEGER},
+      </if>
+      <if test="user_email != null" >
+        user_email = #{user_email,jdbcType=VARCHAR},
+      </if>
+      <if test="user_phone != null" >
+        user_phone = #{user_phone,jdbcType=INTEGER},
+      </if>
+      <if test="user_status != null" >
+        user_status = #{user_status,jdbcType=INTEGER},
+      </if>
+      <if test="user_register_time != null" >
+        user_register_time = #{user_register_time,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.moviemarket.model.User" >
+    update m_user
+    set user_openid = #{user_openid,jdbcType=VARCHAR},
+      user_name = #{user_name,jdbcType=VARCHAR},
+      user_password = #{user_password,jdbcType=VARCHAR},
+      user_sex = #{user_sex,jdbcType=INTEGER},
+      user_email = #{user_email,jdbcType=VARCHAR},
+      user_phone = #{user_phone,jdbcType=INTEGER},
+      user_status = #{user_status,jdbcType=INTEGER},
+      user_register_time = #{user_register_time,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
